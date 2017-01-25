@@ -54,11 +54,16 @@ public class SinglyLinkedList {
 			head = temp;
 		} else {
 			
-			ListNode p,q;
+			ListNode p= head,q;
 			int i=0;
-			for(p =head, i=0; (q= p.getNextNode())!=null && i< position; p=q);
-			p.setNextNode(new ListNode(data));
-			p.getNextNode().setNextNode(q);
+			for(i=0; i< position;  i++) {
+				p= p.getNextNode();
+			}
+			
+			ListNode newNode = new ListNode(data);
+			newNode.setNextNode(p.getNextNode());
+			p.setNextNode(newNode);
+			
 			
 		}
 		
@@ -117,9 +122,10 @@ public class SinglyLinkedList {
 		
 		while(( q = p.getNextNode())!=null) {
 			
-			if(q.equals(node)) {
+			if(q.getData() == node.getData()) {
 				
 				p.setNextNode(q.getNextNode());
+				
 				return ;
 			}
 			p =q;
@@ -153,7 +159,7 @@ public class SinglyLinkedList {
 								
 				temp = temp.getNextNode();
 			}
-			
+			temp.setNextNode(temp.getNextNode().getNextNode());
 		}
 		
 		length --;
@@ -195,15 +201,16 @@ public class SinglyLinkedList {
 		}
 		
 		ListNode temp = head.getNextNode();
-		output += ", "+ head.getData();
+		output +=  head.getData()+", ";
 		
 		while(temp!=null) {
 			
-			output += ", "+ temp.getData();
+			output +=  temp.getData()+", ";
 			temp= temp.getNextNode();
 		}
 		
 		output += " ]";
+		
 		return output;
 	}
 	

@@ -9,15 +9,43 @@ public class SinglyLinkedListTest {
 		
 		SinglyLinkedList list = new SinglyLinkedList();
 		
-		list.toString();
+		System.out.println(list.toString());
+		
+		for(int i =0; i<=10; i++) {
+			ListNode node = new ListNode(i);
+			list.insertAtbegining(node);			
+			
+		}
+		
+		System.out.println(list.toString());
+		
+		
+		//inserted 100 at position 5
+		list.insert(100, 5);
+		System.out.println(list.toString());
+		
+		//remove from front
+		list.removeFromEnd();
+		System.out.println(list.toString());
+		
+		//remove from end
+		list.removeFromFront();
+		System.out.println(list.toString());
+		
+		//get node position
+		System.out.println(list.getPosition(100));
+		
+		
+		//remove nodeof position 5
+		list.remove(5);
+		System.out.println(list.toString());
 		
 		ListNode node = new ListNode(2);
 		
-		list.insertAtbegining(node);
+		//removeing mateched node 
+		list.removeMatched(node);
+		System.out.println(list.toString());
 		
-		list.insertAtEnd(node);
-		
-		list.toString();
 		
 	}
 
